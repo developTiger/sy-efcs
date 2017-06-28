@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="off">
+	<properties>
+		<property name="LOG_HOME">D:/log/log-log4j2</property>
+		<property name="SERVER_NAME">server</property>
+		<property name="PRO">pro</property>
+	</properties>
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss} %-5level %variablesNotEmpty{%X{userId}:%X{userAccount}:%X{userName}:%X{userHost} }[%thread] - %msg%ex - location: %location%n" />
+		</Console>
+		<File name="file" fileName="${LOG_HOME}/${SERVER_NAME}/${PRO}_file.log" append="false">
+			<PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss} %5level %variablesNotEmpty{%X{userId}:%X{userAccount}:%X{userName}:%X{userHost} }[%thread] - %msg%ex - logger:%logger - location: %location%n" />
+		</File>
+		<File name="fileTemp" fileName="${LOG_HOME}/${SERVER_NAME}/${PRO}_file_temp.log">
+			<PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss} %5level %variablesNotEmpty{%X{userId}:%X{userAccount}:%X{userName}:%X{userHost} }[%thread] - %msg%ex - logger:%logger - location: %location%n" />
+		</File>
+		<RollingFile name="rolling" fileName="${LOG_HOME}/${SERVER_NAME}/${PRO}_rollingfile.log" 
+			filePattern="${LOG_HOME}/${SERVER_NAME}/%d{yyyy-MM}/${PRO}-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss} %5level %variablesNotEmpty{%X{userId}:%X{userAccount}:%X{userName}:%X{userHost} }[%thread] - %msg%ex - logger:%logger - location: %location%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+				<SizeBasedTriggeringPolicy size="50MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="9" />
+		</RollingFile>
+		<Async name="fileSyn">
+			<appender-ref ref="file" />
+			<includeLocation>true</includeLocation>
+		</Async>
+		<Async name="rollingSyn">
+			<appender-ref ref="rolling" />
+			<includeLocation>true</includeLocation>
+		</Async>
+	</Appenders>
+	<Loggers>
+		
+		<Logger name="test.wxzd" level="all" additivity="true" />
+			
+		<Root level="warn">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="rollingSyn" />
+		</Root>
+		
+	</Loggers>
+</Configuration>

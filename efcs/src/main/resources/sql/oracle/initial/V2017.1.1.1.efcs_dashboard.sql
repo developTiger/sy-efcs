@@ -1,0 +1,4 @@
+--/**
+-- * 添加模块信息
+-- */
+--insert into sys_module_info values ('f98f4ea7-bc30-4c9b-9cb0-5676012608a3', '1', 'efcs_dashboard', '仪表盘模块', '仪表盘模块', null, to_date('2017-04-19 21:37:00', 'yyyy-mm-dd hh24:mi:ss'), null, to_date('2017-04-19 21:37:00', 'yyyy-mm-dd hh24:mi:ss'), null, '/efcs_dashboard');

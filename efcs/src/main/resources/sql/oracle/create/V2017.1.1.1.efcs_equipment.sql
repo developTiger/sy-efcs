@@ -1,0 +1,52 @@
+--
+--
+--
+--
+--
+--/*==============================================================*/
+--/* Table: fcs_equipment                                       */
+--/*==============================================================*/
+--create table fcs_equipment
+--(
+--   id                 CHAR(36)             not null,
+--   equip_name         VARCHAR2(255),
+--   equip_no           VARCHAR2(255),
+--   resource_no        VARCHAR2(255),
+--   house_id           CHAR(36),
+--   huose_no           VARCHAR2(255),
+--   location_no        VARCHAR2(255),
+--   pos_x              INTEGER              default 0,
+--   pos_y              INTEGER              default 0,
+--   pos_z              INTEGER              default 0,
+--   equip_img          VARCHAR2(2000),
+--   equip_type         VARCHAR2(255),
+--   equip_model        VARCHAR2(255),
+--   equip_desc         VARCHAR2(2000),
+--   equip_vender       VARCHAR2(255),
+--   vender_phone       VARCHAR2(255),
+--   is_active          INTEGER              default 0,
+--   create_datetime    DATE,
+--   create_by          VARCHAR2(255),
+--   last_modify_datetime DATE,
+--   last_modify_by     VARCHAR2(255),
+--   constraint PK_FCS_EQUIPMENT primary key (id)
+--);
+--
+--
+--
+--/*==============================================================*/
+--/* Table: fcs_equipment_extension                             */
+--/*==============================================================*/
+--create table fcs_equipment_extension
+--(
+--   id                 CHAR(36)             not null,
+--   equip_id           CHAR(36),
+--   ext_key            VARCHAR2(255),
+--   ext_value          VARCHAR2(255),
+--   ext_desc           VARCHAR2(2000),
+--   constraint PK_FCS_EQUIPMENT_EXTENSION primary key (id)
+--);
+--
+--alter table fcs_equipment_extension
+--   add constraint FK_FCS_EQUI_REFERENCE_FCS_EQUI foreign key (equip_id)
+--      references fcs_equipment (id);

@@ -1,0 +1,9 @@
+<th><%=cabel.Formation_Palletize%></th>
+<th><%=cabel.highCount%></th>
+<th><%=cabel.formationCount%></th>
+<th><%=cabel.formationReworkCount%></th>
+<th><%=cabel.formationSplit%></th>
+<th><%=cabel.testPalletizeCount%></th>
+<th><%=cabel.NormalTemperature1Count%></th>
+<th><%=cabel.NormalTemperature2Count%></th>
+<th><%=cabel.TestSplitCount%></th>

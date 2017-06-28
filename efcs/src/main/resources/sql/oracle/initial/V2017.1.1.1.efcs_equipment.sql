@@ -1,0 +1,1 @@
+--insert into sys_module_info values ('d91cacf4-1a68-4e9c-b2fe-945156441e6f', '1', 'efcs_equipment', '设备管理', '设备管理', null, to_date('2017-03-20 09:16:05', 'yyyy-mm-dd hh24:mi:ss'), null, to_date('2017-03-20 09:16:05', 'yyyy-mm-dd hh24:mi:ss'), null, '/efcs_equipment');

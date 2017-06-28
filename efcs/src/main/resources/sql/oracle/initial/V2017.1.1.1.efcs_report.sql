@@ -1,0 +1,4 @@
+--/**
+-- * 添加模块信息
+-- */
+--insert into sys_module_info values ('9d7f7b6f-3f1a-448d-aa38-3af3ab19bbe8', '1', 'efcs_report', '报表模块', '报表模块', null, to_date('2017-04-19 21:37:00', 'yyyy-mm-dd hh24:mi:ss'), null, to_date('2017-04-19 21:37:00', 'yyyy-mm-dd hh24:mi:ss'), null, '/efcs_report');

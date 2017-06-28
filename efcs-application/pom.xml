@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.wxzd.efcs</groupId>
+		<artifactId>efcs-module</artifactId>
+		<version>V2017.1.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>efcs-application</artifactId>
+	<packaging>war</packaging>
+	<name>efcs-application</name>
+	<description>436项目应用程序打包项目</description>
+
+	<dependencies>
+		<!-- module -->
+		<dependency>
+			<groupId>com.wxzd.efcs</groupId>
+			<artifactId>efcs</artifactId>
+			<version>V2017.1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.wxzd.wcs</groupId>
+			<artifactId>wxzd-wcs-dispatcher-client</artifactId>
+			<version>V2017.1.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>efcs</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-install-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

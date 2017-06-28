@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="off">
+	<properties>
+		<property name="LOG_HOME">log-log4j2</property>
+		<property name="SERVER_NAME">server</property>
+		<property name="PRO">pro</property>
+	</properties>
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss} %-5level %variablesNotEmpty{%X{userId}:%X{userAccount}:%X{userName}:%X{userHost} }[%thread] - %msg%ex - location: %location%n" />
+		</Console>
+		<File name="file" fileName="${LOG_HOME}/${SERVER_NAME}/${PRO}_file.log" append="false">
+			<PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss} %5level %variablesNotEmpty{%X{userId}:%X{userAccount}:%X{userName}:%X{userHost} }[%thread] - %msg%ex - logger:%logger - location: %location%n" />
+		</File>
+		<RollingFile name="rolling" fileName="${LOG_HOME}/${SERVER_NAME}/${PRO}_rollingfile.log" 
+			filePattern="${LOG_HOME}/${SERVER_NAME}/%d{yyyy-MM}/${PRO}-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss} %5level %variablesNotEmpty{%X{userId}:%X{userAccount}:%X{userName}:%X{userHost} }[%thread] - %msg%ex - logger:%logger - location: %location%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+				<SizeBasedTriggeringPolicy size="50MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="9" />
+		</RollingFile>
+		<Async name="fileSyn">
+			<appender-ref ref="file" />
+			<includeLocation>true</includeLocation>
+		</Async>
+		<Async name="rollingSyn">
+			<appender-ref ref="rolling" />
+			<includeLocation>true</includeLocation>
+		</Async>
+	</Appenders>
+	<Loggers>
+		
+		<Logger name="com.wxzd.wms" level="all" additivity="true" />
+		<Logger name="test.wxzd" level="all" additivity="true" />
+		
+		<!-- 
+		<Logger name="com.wxzd" level="all" additivity="true" />
+		 -->
+		
+		
+		<Logger name="com.wxzd.gaia.web.listener.InitListener" level="info" additivity="true" />
+		<Logger name="com.wxzd.gaia.jdbc.log.JdbcLog" level="info" additivity="true" />
+		<Logger name="com.wxzd.gaia.web.log.ResourceLog" level="info" additivity="true" />
+		
+		
+		<!-- develop模式: freemarker模板,i18n -->
+		<Logger name="com.wxzd.gaia.common.base.core.dev.DevContext" level="debug" additivity="true" />
+		<!-- 加载模块信息 -->
+		<Logger name="com.wxzd.gaia.web.module.ModuleInitialize" level="debug" additivity="true" />
+		<!-- 数据库初始化 -->
+		<Logger name="com.wxzd.gaia.web.database.DatabaseInitialize" level="info" additivity="true" />
+		<!-- 构建请求的详细信息 -->
+		<Logger name="com.wxzd.gaia.web.handler.YsNoDefaultModuleRequestMappingHandlerMapping" level="info" additivity="true" />
+		<!-- 异常前端控制器 -->
+		<Logger name="com.wxzd.gaia.web.resolver.MappingExceptionResolver" level="all" additivity="true" />
+		
+		<Root level="warn">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="fileSyn" />
+			<AppenderRef ref="rollingSyn" />
+		</Root>
+		
+	</Loggers>
+</Configuration>

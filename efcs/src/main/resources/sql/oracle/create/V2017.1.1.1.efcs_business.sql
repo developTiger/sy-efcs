@@ -1,0 +1,272 @@
+-- /*==============================================================*/
+-- /* Table: fcs_fm_battery_in                                     */
+-- /*==============================================================*/
+-- create table fcs_fm_battery_in
+-- (
+--    id                   CHAR(36)             not null,
+--    form_no              VARCHAR2(255),
+--    work_procedure       VARCHAR2(255),
+--    house_id             CHAR(36),
+--    house_no             VARCHAR2(255),
+--    equip_no             VARCHAR2(255),
+--    sku_id               CHAR(36),
+--    battery_barcode      VARCHAR2(255),
+--    line_pos             VARCHAR2(255),
+--    line_channel_no      VARCHAR2(255),
+--    operate_datetime     DATE,
+--    create_mode          VARCHAR2(255),
+--    fm_status            VARCHAR2(255),
+--    error_code           VARCHAR2(255),
+--    error_desc            VARCHAR2(4000),
+--    remark               VARCHAR2(4000),
+--    is_active            INTEGER              default 0,
+--    create_datetime      DATE,
+--    create_by            VARCHAR2(255),
+--    last_modify_datetime DATE,
+--    last_modify_by       VARCHAR2(255),
+--    constraint PK_FCS_FM_BATTERY_IN primary key (id)
+-- );
+--
+-- /*==============================================================*/
+-- /* Table: fcs_fm_storage_out                                    */
+-- /*==============================================================*/
+-- create table fcs_fm_storage_out
+-- (
+--    id                   CHAR(36)             not null,
+--    form_no              VARCHAR2(255),
+--    work_procedure       VARCHAR2(255),
+--    house_id             CHAR(36),
+--    house_no             VARCHAR2(255),
+--    equip_no             VARCHAR2(255),
+--    sku_id               CHAR(36),
+--    battery_barcode      VARCHAR2(255),
+--    line_pos             VARCHAR2(255),
+--    line_channel_no      VARCHAR2(255),
+--    operate_datetime     DATE,
+--    create_mode          VARCHAR2(255),
+--    fm_status            VARCHAR2(255),
+--    error_code           VARCHAR2(255),
+--    error_desc            VARCHAR2(4000),
+--    is_active            INTEGER              default 0,
+--    create_datetime      DATE,
+--    create_by            VARCHAR2(255),
+--    last_modify_datetime DATE,
+--    last_modify_by       VARCHAR2(255),
+--    remark               VARCHAR2(4000),
+--    constraint PK_FCS_FM_STORAGE_OUT primary key (id)
+-- );
+--
+-- /*==============================================================*/
+-- /* Table: fcs_instruction                                       */
+-- /*==============================================================*/
+-- create table fcs_instruction
+-- (
+--    id                   CHAR(36)             not null,
+--    instr_no             VARCHAR2(255),
+--    instr_type           VARCHAR2(255),
+--    house_no             VARCHAR2(255),
+--    equip_no             VARCHAR2(255),
+--    pallet_no            VARCHAR2(255),
+--    form_no              VARCHAR2(255),
+--    work_procedure       VARCHAR2(255),
+--    from_pos             VARCHAR2(255),
+--    to_pos               VARCHAR2(255),
+--    instr_level          INTEGER              default 0,
+--    move_policy          VARCHAR2(255),
+--    instr_status         VARCHAR2(255),
+--    error_code           VARCHAR2(255),
+--    error_desc            VARCHAR2(4000),
+--    remark               VARCHAR2(4000),
+--    is_active            INTEGER              default 0,
+--    create_datetime      DATE,
+--    create_by            VARCHAR2(255),
+--    last_modify_datetime DATE,
+--    last_modify_by       VARCHAR2(255),
+--    constraint PK_FCS_INSTRUCTION primary key (id)
+-- );
+--
+-- /*==============================================================*/
+-- /* Table: fcs_pallet_detail                                     */
+-- /*==============================================================*/
+-- create table fcs_pallet_detail
+-- (
+--    id                   CHAR(36)             not null,
+--    sku_id               CHAR(36),
+--    channel_no           VARCHAR2(255),
+--    form_no              VARCHAR2(255),
+--    battery_barcode      VARCHAR2(255),
+--    pallet_no            VARCHAR2(255),
+--    out_equit_no         VARCHAR2(255),
+--    out_clamp_no         VARCHAR2(255),
+--    out_pos_type         VARCHAR2(255),
+--    from_pos_no           VARCHAR2(255),
+--    from_pos_channel_no   VARCHAR2(255),
+--    in_equip_no          VARCHAR2(255),
+--    in_clamp_no          VARCHAR2(255),
+--    in_pos_type          VARCHAR2(255),
+--    to_pos_no            VARCHAR2(255),
+--    to_pos_channel_no    VARCHAR2(255),
+--    is_active            INTEGER              default 0,
+--    create_datetime      DATE,
+--    create_by            VARCHAR2(255),
+--    last_modify_datetime DATE,
+--    last_modify_by       VARCHAR2(255),
+--    pallet_cargo_id      CHAR(36),
+--    constraint PK_FCS_PALLET_DETAIL primary key (id)
+-- );
+--
+-- /*==============================================================*/
+-- /* Table: fcs_pallet_dispatch                                   */
+-- /*==============================================================*/
+-- create table fcs_pallet_dispatch
+-- (
+--    id                   CHAR(36)             not null,
+--    container_id         CHAR(36),
+--    container_no    VARCHAR2(255),
+--    work_procedure       VARCHAR2(255),
+--    pallet_status        VARCHAR2(255),
+--    channel_policy       VARCHAR2(255),
+--    is_empty             INTEGER              default 0,
+--    enter_time           DATE,
+--    palletize_complete_time DATE,
+--    current_procedure_time DATE,
+--    pallet_split_time    DATE,
+--    dispatch_status      VARCHAR2(255),
+--    pos_type             VARCHAR2(255),
+--    current_pos          VARCHAR2(255),
+--    error_code           VARCHAR2(255),
+--    error_desc           VARCHAR2(4000),
+--    is_active            INTEGER              default 0,
+--    create_datetime      DATE,
+--    create_by            VARCHAR2(255),
+--    last_modify_datetime DATE,
+--    last_modify_by       VARCHAR2(255),
+--    constraint PK_FCS_PALLET_DISPATCH primary key (id)
+-- );
+--
+-- /*==============================================================*/
+-- /* Table: fcs_pallet_move_detail                                */
+-- /*==============================================================*/
+-- create table fcs_pallet_move_detail
+-- (
+--    id                   CHAR(36)             not null,
+--    pallet_cargo_id      CHAR(36),
+--    procedure_name       VARCHAR2(255),
+--    work_procedure       VARCHAR2(255),
+--    container_status     VARCHAR2(255),
+--    form_no              VARCHAR2(255),
+--    pos_type             VARCHAR2(255),
+--    arrive_pos           VARCHAR2(255),
+--    error_code           VARCHAR2(255),
+--    error_desc           VARCHAR2(4000),
+--    is_active            INTEGER              default 0,
+--    create_datetime      DATE,
+--    create_by            VARCHAR2(255),
+--    last_modify_datetime DATE,
+--    last_modify_by       VARCHAR2(255),
+--    constraint PK_FCS_PALLET_MOVE_DETAIL primary key (id)
+-- );
+--
+-- /*==============================================================*/
+-- /* Table: fsc_fm_pallet_split                                   */
+-- /*==============================================================*/
+-- create table fsc_fm_pallet_split
+-- (
+--    id                   CHAR(36)             not null,
+--    form_no              VARCHAR2(255),
+--    work_procedure       VARCHAR2(255),
+--    house_id             CHAR(36),
+--    house_no             VARCHAR2(255),
+--    equip_no             CHAR(36),
+--    pallet_cargo_id      CHAR(36),
+--    pallet_no            VARCHAR2(255),
+--    pallet_status        VARCHAR2(255),
+--    proc_start_time      DATE,
+--    proc_complete_time   DATE,
+--    channel_policy       VARCHAR2(255),
+--    palletize_status     VARCHAR2(255),
+--    create_mode          VARCHAR2(255),
+--    fm_status            VARCHAR2(255),
+--    error_code           VARCHAR2(255),
+--    error_desc           VARCHAR2(4000),
+--    remark               VARCHAR2(4000),
+--    is_active            INTEGER              default 0,
+--    create_datetime      DATE,
+--    create_by            VARCHAR2(255),
+--    last_modify_datetime DATE,
+--    last_modify_by       VARCHAR2(255),
+--    constraint PK_FSC_FM_PALLET_SPLIT primary key (id)
+-- );
+--
+-- /*==============================================================*/
+-- /* Table: fsc_fm_palletize                                      */
+-- /*==============================================================*/
+-- create table fsc_fm_palletize
+-- (
+--    id                   CHAR(36)             not null,
+--    form_no              VARCHAR2(255),
+--    work_procedure       VARCHAR2(255),
+--    house_id             CHAR(36),
+--    house_no             VARCHAR2(255),
+--    equip_no             CHAR(36),
+--    pallet_no            VARCHAR2(255),
+--    pallet_cargo_id      CHAR(36),
+--    pallet_status        VARCHAR2(255),
+--    proc_start_time      DATE,
+--    proc_complete_time   DATE,
+--    channel_policy       VARCHAR2(255),
+--    palletize_status     VARCHAR2(255),
+--    create_mode          VARCHAR2(255),
+--    fm_status            VARCHAR2(255),
+--    error_code           VARCHAR2(255),
+--    error_desc           VARCHAR2(4000),
+--    remark               VARCHAR2(4000),
+--    is_active            INTEGER              default 0,
+--    create_datetime      DATE,
+--    create_by            VARCHAR2(255),
+--    last_modify_datetime DATE,
+--    last_modify_by       VARCHAR2(255),
+--    constraint PK_FSC_FM_PALLETIZE primary key (id)
+-- );
+--
+-- /*==============================================================*/
+-- /* Table: fsc_fm_procedure                                      */
+-- /*==============================================================*/
+-- create table fsc_fm_procedure
+-- (
+--    id                   CHAR(36)             not null,
+--    form_no              VARCHAR2(255),
+--    house_no             VARCHAR2(255),
+--    pallet_cargo_id      CHAR(36),
+--    pallet_no            VARCHAR2(255),
+--    create_mode          VARCHAR2(255),
+--    work_procedure       VARCHAR2(255),
+--    pallet_status        VARCHAR2(255),
+--    loc_assign_time      DATE,
+--    in_loc_no            VARCHAR2(255),
+--    in_time              INTEGER              default 0,
+--    out_loc_no           VARCHAR2(255),
+--    out_plan_time        DATE,
+--    is_auto_out          INTEGER              default 0,
+--    out_time             DATE,
+--    stay_plan_time       INTEGER              default 0,
+--    stay_time            INTEGER              default 0,
+--    fm_status            VARCHAR2(255),
+--    error_code           VARCHAR2(255),
+--    error_desc            VARCHAR2(255),
+--    remark               VARCHAR2(4000),
+--    is_active            INTEGER              default 0,
+--    create_datetime      DATE,
+--    create_by            VARCHAR2(255),
+--    last_modify_datetime DATE,
+--    last_modify_by       VARCHAR2(255),
+--    constraint PK_FSC_FM_PROCEDURE primary key (id)
+-- );
+--
+-- alter table fcs_pallet_detail
+--    add constraint FK_PALLET_DETAIL_R_T_DISPATCH foreign key (pallet_cargo_id)
+--       references fcs_pallet_dispatch (id);
+--
+-- alter table fcs_pallet_move_detail
+--    add constraint FK_T_MOVE_DETAIL_R_T_DISPATCH foreign key (pallet_cargo_id)
+--       references fcs_pallet_dispatch (id);

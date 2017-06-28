@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.wxzd.efcs</groupId>
+		<artifactId>efcs-module</artifactId>
+		<version>V2017.1.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>efcs</artifactId>
+	<name>efcs</name>
+	<description>新能源化成测试调度管理系统模块 FOR CATL</description>
+	<dependencies>
+		<dependency>
+			<groupId>com.wxzd.wms</groupId>
+			<artifactId>wms.system</artifactId>
+			<version>V2017.1.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.wxzd.wms</groupId>
+			<artifactId>wms.core</artifactId>
+			<version>V2017.1.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.wxzd.catl</groupId>
+			<artifactId>catl-mes-ws-client</artifactId>
+			<version>V2017.1.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.wxzd.wcs</groupId>
+			<artifactId>wcs.dispatcher</artifactId>
+			<version>V2017.1.1-SNAPSHOT</version>
+		</dependency>
+		<!-- webservice server -->
+		<dependency>
+			<groupId>com.wxzd.efcs</groupId>
+			<artifactId>catl-ecs-ws-server</artifactId>
+			<version>V2017.1.1-SNAPSHOT</version>
+		</dependency>
+		<!-- layout -->
+		<dependency>
+			<groupId>com.wxzd.gaia.front</groupId>
+			<artifactId>gaia.front.layout.default</artifactId>
+			<version>V2017.1.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+</project>

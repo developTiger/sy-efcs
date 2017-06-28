@@ -1,0 +1,65 @@
+--/*==============================================================*/
+--/* Table: fcs_alarm_info                                        */
+--/*==============================================================*/
+--create table fcs_alarm_info
+--(
+--  id                   CHAR(36)             not null,
+--  alarm_type           VARCHAR2(255),
+--  alarm_level          VARCHAR2(255),
+--  house_id             CHAR(36),
+--  huose_no             VARCHAR2(255),
+--  location_type        VARCHAR2(255),
+--  device_no            CHAR(10),
+--  location             VARCHAR2(255),
+--  alarm_group          VARCHAR2(255),
+--  title                VARCHAR2(255),
+--  content              VARCHAR2(4000),
+--  handled              INTEGER              default 0,
+--  is_active            INTEGER              default 0,
+--  create_datetime      DATE,
+--  create_by            VARCHAR2(255),
+--  last_modify_datetime DATE,
+--  last_modify_by       VARCHAR2(255),
+--  constraint PK_FCS_ALARM_INFO primary key (id)
+--);
+--
+--
+--
+--/*==============================================================*/
+--/* Table: fcs_alarm_handle_info                                 */
+--/*==============================================================*/
+--create table fcs_alarm_handle_info
+--(
+--  id                   CHAR(36)             not null,
+--  alarm_id             CHAR(36),
+--  user_id              CHAR(36),
+--  handle_info          VARCHAR2(4000),
+--  handle_time          DATE,
+--  is_active            INTEGER              default 0,
+--  create_datetime      DATE,
+--  create_by            VARCHAR2(255),
+--  last_modify_datetime DATE,
+--  last_modify_by       VARCHAR2(255),
+--  constraint PK_FCS_ALARM_HANDLE_INFO primary key (id)
+--);
+--
+--alter table fcs_alarm_handle_info
+--  add constraint FK_FCS_ALAR_REFERENCE_FCS_ALAR foreign key (alarm_id)
+--references fcs_alarm_info (id);
+--
+--
+--/*==============================================================*/
+--/* Table: fcs_alarm_read_stamp                                  */
+--/*==============================================================*/
+--create table fcs_alarm_read_stamp
+--(
+--  id                   CHAR(36)             not null,
+--  user_id              CHAR(36),
+--  last_refresh_time    DATE,
+--  is_active            INTEGER              default 0,
+--  create_datetime      DATE,
+--  create_by            VARCHAR2(255),
+--  last_modify_datetime DATE,
+--  last_modify_by       VARCHAR2(255),
+--  constraint PK_FCS_ALARM_READ_STAMP primary key (id)
+--);
